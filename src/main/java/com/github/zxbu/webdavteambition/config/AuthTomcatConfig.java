@@ -20,14 +20,11 @@ import java.security.Principal;
 import java.util.Collections;
 
 @Component
-@ConditionalOnProperty(prefix = "baidudrive.auth", name = "enable", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "webdav.auth", name = "enable", matchIfMissing = true)
 public class AuthTomcatConfig implements WebServerFactoryCustomizer<ConfigurableServletWebServerFactory>, Ordered {
 
-    //@Autowired
-    //private AliYunDriveProperties aliYunDriveProperties;
-
     @Autowired
-    private BaiduDriverProperties baiduDriverProperties;
+    private DriveProperties  driveProperties;
 
     @Override
     public void customize(ConfigurableServletWebServerFactory factory) {
@@ -39,15 +36,15 @@ public class AuthTomcatConfig implements WebServerFactoryCustomizer<Configurable
             RealmBase realm = new RealmBase() {
                 @Override
                 protected String getPassword(String username) {
-                    if (baiduDriverProperties.getAuth().getUserName().equals(username)) {
-                        return baiduDriverProperties.getAuth().getPassword();
+                    if (driveProperties.getAuth().getUserName().equals(username)) {
+                        return driveProperties.getAuth().getPassword();
                     }
                     return null;
                 }
 
                 @Override
                 protected Principal getPrincipal(String username) {
-                    return new GenericPrincipal(username, baiduDriverProperties.getAuth().getPassword(), Collections.singletonList("**"));
+                    return new GenericPrincipal(username, driveProperties.getAuth().getPassword(), Collections.singletonList("**"));
                 }
             };
 

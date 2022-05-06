@@ -26,7 +26,7 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-//@Service
+@Service
 public class AliYunDriverClientService {
     private static final Logger LOGGER = LoggerFactory.getLogger(AliYunDriverClientService.class);
     private static final ObjectMapper objectMapper = new ObjectMapper();

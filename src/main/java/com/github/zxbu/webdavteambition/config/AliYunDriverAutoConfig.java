@@ -9,8 +9,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@Configuration
-//@EnableConfigurationProperties(AliYunDriveProperties.class)
+@Configuration
+@EnableConfigurationProperties(AliYunDriveProperties.class)
 public class AliYunDriverAutoConfig {
     private static final Logger LOGGER = LoggerFactory.getLogger(AliYunDriverAutoConfig.class);
 

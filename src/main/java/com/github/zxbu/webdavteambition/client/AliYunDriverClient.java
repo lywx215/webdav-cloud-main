@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
-public class AliYunDriverClient {
+public class AliYunDriverClient implements DriverClient {
     private static final Logger LOGGER = LoggerFactory.getLogger(AliYunDriverClient.class);
     private OkHttpClient okHttpClient;
     private AliYunDriveProperties aliYunDriveProperties;
